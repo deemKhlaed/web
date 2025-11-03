@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <title>HTML5 Links</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+  </head>
+  <body>
+<div style="text-align: center;  " > 
+<table>
+    
+<caption>Table 1: order details of Fruits and Their Prices</caption>
+<tr>
+<th>Item</th>
+<th>Price</th>
+</tr>
+<tr>
+<td>Apple</td>
+<td>15</td>
+
+</tr>
+<tr>
+<td>Lemon</td>
+<td>1.50</td>
+</tr>
+<tr>
+<td>banana</td>
+<td>2.5</td>
+</tr>
+
+<tr>
+<td>Pineapple</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>15</strong></td>
+</tr>
+</table>
+<p></p>
+</div>
+<div style="text-align: center; "> 
+    <table class="table2">
+    <caption>Table 2: A more complex sample table</caption>
+    <tr>
+      <td rowspan="3"><img src="{% static 'book1.jpg' %}" alt="Desert" width="250" height="150"></td>
+      <td colspan="4" style="text-align: center; font-weight: bold;">
+        Camelid comparison<br>
+        Approximate as of 6/2011
+      </td>
+    </tr>
+
+    <tr>
+      <th># of humps</th>
+      <th>Indigenous region</th>
+      <th>Spits?</th>
+      <th>Produces wool?</th>
+    </tr>
+
+    <tr>
+      <td>1</td>
+      <td>Arabian Peninsula</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+
+    <tr>
+      <th>Dromedary</th>
+      <td>1</td>
+      <td>Arabian Peninsula</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+
+    <tr>
+      <th>Camels (bactrian)</th>
+      <td>2</td>
+      <td>Africa/Asia</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+
+    <tr>
+      <th>Llamas</th>
+      <td>1</td>
+      <td>Andes Mountains</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+  </table>
+</div>
+  </body>
+</html>

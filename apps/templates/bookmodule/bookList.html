@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+      {% load static %}
+
+<head>
+ <title>List of Books</title>
+ <meta name="keywords" content="Books, recent, Learning, library">
+ <meta name="description" content="Books website">
+ <meta name="author" content="author name">
+
+ <link rel="icon" href="{% static 'qu-icon.png' %}"> <!-- static template tag -->  
+ <link rel="stylesheet" href="{% static 'styles.css' %}"> <!-- static template tag -->
+ <meta charset="UTF-8">
+ 
+</head>
+<body>
+   {%for book in books%}
+     <div class="book-entry">
+      ID: {{book.id}}, Title: {{book.title}} author: {{book.author}} 
+      Price: {{book.price}} , Edition: {{book.edition}} 
+      <hr>
+     </div>
+     <hr>
+   {%endfor%}
+</body>
+</html>
