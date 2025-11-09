@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Book
 # Create your views here.
 from django.http import HttpResponse
-
+from django.db.models import Q, Avg, Min, Max
 
 def index(request):
  return render(request, "bookmodule/index.html")
@@ -71,3 +71,29 @@ def __getBooksList():
  book2 = {'id':56788765,'title':'Reversing: Secrets of Reverse Engineering', 'author':'E. Eilam'}
  book3 = {'id':43211234, 'title':'The Hundred-Page Machine Learning Book', 'author':'Andriy Burkov'}
  return [book1, book2, book3]
+
+def task1(request):
+  books = Book.objects.filter(Q(price__lte = 20))
+  return render(request, 'bookmodule/bookList.html', {'books':books})
+
+def task2(request):
+  itemsObjs = Book.objects.filter(Q(edition__gt = 2015)&
+(Q(title__contains = 'qu') | Q(author__contains = 'qu')) )
+  return render(request, 'bookmodule/bookList.html', {'books':itemsObjs})
+
+def task3(request):
+  itemsObjs = Book.objects.filter(~Q(edition__gt = 2015)&
+(~Q(title__contains = 'qu') | ~Q(author__contains = 'qu')) )
+  return render(request, 'bookmodule/bookList.html', {'books':itemsObjs})
+
+
+def task4(request):
+  itemsObjs = Book.objects.order_by('title')
+  return render(request, 'bookmodule/bookList.html', {'books':itemsObjs})
+
+def task5(request):
+  count = Book.objects.count()
+  avg = Book.objects.all().aggregate(Avg('price'))
+  min = Book.objects.all().aggregate(Min('price'))
+  max = Book.objects.all().aggregate(Max('price'))
+  return HttpResponse(f"Count: {count}, Avg: {avg['price__avg']}, Min: {min['price__min']}, Max: {max['price__max']}")
